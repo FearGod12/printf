@@ -10,7 +10,7 @@
 
 int parse_oct(char *buff_dest, va_list arg, int buff_count)
 {
-	unsigned int numb = va_arg(arf, unsigned int);
+	unsigned int number = va_arg(arg, unsigned int);
 
 	unsigned int tmp = number;
 	int octs = 1;
@@ -26,7 +26,7 @@ int parse_oct(char *buff_dest, va_list arg, int buff_count)
 		buff_dest[buff_count] = ('0' + tmp / octs);
 		tmp %= octs;
 		octs /= 8;
-		buff_cout++;
+		buff_count++;
 	}
 	return (buff_count);
 }

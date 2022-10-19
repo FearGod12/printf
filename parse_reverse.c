@@ -8,7 +8,7 @@
  * Return: New index
  */
 
-int parse_reverse(char *buff_dest, va_list arg < int buff_count)
+int parse_reverse(char *buff_dest, va_list arg, int buff_count)
 {
 	int i = 0;
 	char *str;
