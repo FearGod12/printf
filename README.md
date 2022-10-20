@@ -63,4 +63,4 @@ Notes
 Our program does not handle buffer handling, flag characters, field width, precision, or length modifiers.
 
 Authors
-Onyenike Chukwudi Feargod & Mawoda
+Onyenike Chukwudi Feargod & Mawoda Ekabua.
