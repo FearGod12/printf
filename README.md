@@ -1,66 +1,106 @@
-_printf
+0x11. C - printf
+Description
+This printf project is a collaboration between Samuel Adebayo and Gerald Juwah. Who are Software Engineers studing at students of ALX school. This project involves a function named "_printf" which would imitate the actual "printf" command located in the stdio.h library. This function contains some of the basic features and functions found in the man 3 of "printf".
 
-The _printf function is a custom implementation of the C programming function printf. It returns the number of characters printed and writes the output to stdout. It includes the conversion specifiers : c, s, %, d, x, X, u, o, rot13 and i.
+What you would learn from this project:
 
-Example
-#include "main.h"
-_printf("The %s jumped %d times! -%c", "dog", 7, 'C');
-output : The dog jumped 7 times! -C
+How to use git in a team setting
+Applying variadic functions to big projects
+The complexities of printf
+Managing a lot of flies and finding a good workflow
+Prototype
+int _printf(const char *format, ...);
+Usage
+Prints a string to the standard output, according to a given format
+All files were created and compiled on Ubuntu 14.04.4 LTS using GCC 4.8.4 with the command gcc -Wall -Werror -Wextra pedantic *.c
+Returns the number of characters in the output string on success, -1 otherwise
+Call it this way: _printf("format string", arguments...) where format string can contain conversion specifiers and flags, along with regular characters.
+The format contains the string that is printed. As _printf() is variadic function, it can receives n arguments that replace by n tags written inside the string.
 
-Project Requirements
-All files will be compiled on Ubuntu 14.04 LTS
-Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-Your code should use the Betty style
-You are not allowed to use global variables
-Authorized functions and macros:
-write (man 2 write)
-malloc (man 3 malloc)
-free (man 3 free)
-va_start (man 3 va_start)
-va_end (man 3 va_end)
-va_copy (man 3 va_copy)
-va_arg (man 3 va_arg)
-Files and functions
-_putchar.c:
+The format tags prototype is the following:
 
-int _putchar(char c) - function to print char
-_strlen.c:
+%[flags][length]specifier
+If the program runs successfully, the return value is the amount of chars printed.
 
-int _strlen(char *string) - gets string length
-get_bin.c:
+Specifier	Output
+c	Character
+d or i	Decimal integer
+s	String
+b	Binary
+%	Percentage charater
+o	Signed Octal
+u	Unsigned Integer
+x	Unsigned Hexadecimal
+X	Unsigned Hexadecimal (uppercase)
+p	Pointer address
+r	Reversr string of characters
+R	ROT13 translaton of string
+S	String with special chars replaced by their ASCII value
+Examples
+Printing the string of chars "Hello ALX School":
 
-int _bin(va_list bin) - function to print binary
-get_char.c:
+Input: \_printf("Hello %s.", "ALX School");
+Output: Hello ALX School
+Printing an integer number:
 
-int ch(va_list character) - function to return char
-get_hex.c:
+Input: \_printf("2 + 2 is equal to %d.", 4);
+Output: 2 + 2 is equal to 4
+Printing a binary:
 
-int _hex_str(unsigned int n, unsigned int hex, char alpha) - converts the number from base 10 to hex
-get_int.c:
+Input: \_printf("98 in binary is [%b]", 98);
+Output: 98 in binary is [1100010]
+File Functions
+_printf.c
+the function that imitates printf(), by printing data.
 
-int _int(va_list integ) - function to print integers
-get_oct.c:
+main.h
+Header file where all Protypes are saved.
 
-int _oct(va_list octo) - function to print octal
-get_rot13.c:
+man_3_printf
+manpage file
 
-int _rot13(va_list rot) - prints rot13 version
-get_str.c:
+parse_char.c
+Function that writes the Buffer Character.
 
-int str(va_list *s) - prints string to stdout
-get_unsigned.c:
+/* Indetifier : %c */
+parse_int.c
+Function that Prints an Integer.
 
-int _ui(va_list unsign) - unsigned int print to stdout
-holberton.h: header file
+/* Indetifier : %i or %d */
+parse_string.c
+Function that Prints out a String.
 
-man_3_printf: _printf man page
+/* Indetifier : %s */
+parse_binary.c
+Function that Prints a Binary.
 
-printf.c: main custom _printf function
+/* Indetifier : %b */
+parse_perc.c
+Function that Prints a Percentage symbol.
 
-int print_op(const char *format, fmt_t *print_arr, va_list list) - function to check which specifier to print
-int _printf(const char *format, ...) - prints output according to format
-Notes
-Our program does not handle buffer handling, flag characters, field width, precision, or length modifiers.
+/* Indetifier : %% */
+parse_oct.c
+Function that Prints Decimal in Octal.
+
+/* Indetifier : %o */
+parse_hex.c
+Function that Prints Decimal in Hexadecimal.
+
+/* Indetifier : %x */
+parse_x_X.c
+Function that prints Decimal in Uppercase Hexadecimal.
+
+/* Indetifier : %X */
+parse_unit.c
+Function that Prints an Unsigned Integer.
+
+/* Indetifier : %u */
+parse_buff.c
+Function that Prints the Buffer
+
+.gitignore
+Files to be ignored when pushing to github.
 
 Authors
-Onyenike Chukwudi Feargod & Mawoda
+Onyenike Chukwudi FearGod onyenikechukwudi@gmail.com
+Mawoda 1mawoda@gmail.com
